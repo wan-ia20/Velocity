@@ -300,7 +300,6 @@ footer {
     color: var(--primary);
 }
 
-/* Back to Top Button */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -422,12 +421,13 @@ footer {
         </div>
     </div>
 </footer>
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
   <script>
 
     function showCustomAlert(message) {
     const alertBox = document.createElement('div');
-    alertBox.className = 'custom-alert'; // Use your existing alert class
+    alertBox.className = 'custom-alert'; 
     alertBox.innerHTML = `
         <div class="alert-content">
             <i class="fa-solid fa-circle-check me-2"></i>
@@ -437,10 +437,8 @@ footer {
     
     document.body.appendChild(alertBox);
     
-    // Make visible
     setTimeout(() => alertBox.classList.add('show'), 10);
     
-    // Auto-remove after 3 seconds
     setTimeout(() => {
         alertBox.classList.remove('show');
         setTimeout(() => alertBox.remove(), 300);
@@ -500,7 +498,7 @@ function clearCart() {
     showCustomAlert('Cart cleared');
 }
 
-// Initialize
+
 document.addEventListener('DOMContentLoaded', () => {
     loadCart();
     document.getElementById('clearCartBtn').addEventListener('click', clearCart);

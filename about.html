@@ -507,35 +507,185 @@ footer {
     color: var(--primary);
 }
 
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--primary);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    text-decoration: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition);
-    z-index: 999;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+@media (max-width: 1199.98px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
 }
 
-.back-to-top.active {
-    opacity: 1;
-    visibility: visible;
+@media (max-width: 991.98px) {
+    section {
+        padding: 60px 0;
+    }
+    
+    .hero {
+        height: 50vh;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-text {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .about-img {
+        order: 1;
+    }
+    
+    .section-title {
+        padding-left: 0 !important;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    
+    footer .col-lg-4 {
+        margin-bottom: 30px;
+    }
 }
 
-.back-to-top:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-5px);
+@media (max-width: 767.98px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    .hero {
+        height: 40vh;
+        margin-top: 60px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .team-member img {
+        height: 200px;
+    }
+    
+    .footer-logo {
+        font-size: 1.5rem;
+    }
+    
+    .footer-title {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .newsletter {
+        padding: 40px 0;
+    }
+    
+    .partner-logos {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .partner-logos a {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    section {
+        padding: 40px 0;
+    }
+    
+    .hero {
+        height: 35vh;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .member-info {
+        padding: 15px;
+    }
+    
+    .footer-bottom .col-md-6 {
+        text-align: center !important;
+        margin-bottom: 15px;
+    }
+    
+    .footer-menu {
+        justify-content: center;
+    }
+    
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Mobile menu adjustments */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: white;
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-nav .nav-item {
+        margin: 5px 0;
+    }
+    
+    .dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        margin: 10px 0;
+        box-shadow: none;
+        border-left: 3px solid var(--primary);
+    }
+    
+    .navbar-nav .nav-link::after {
+        display: none;
+    }
 }
 </style>
 
@@ -621,7 +771,7 @@ footer {
                     <p>We believe that great performance comes from the perfect combination of technology and human potential. Our gear is designed to enhance natural ability without compromising comfort or durability.</p>
                 </div>
                 <div class="about-img">
-                    <img src="pics/download.jpg" alt="Our Team">
+                    <img src="pics/download.jpg" alt="Our Team" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -629,13 +779,13 @@ footer {
 
     <section class="testimonials">
         <div class="container">
-            <div class="section-title" style="padding-left: 370px;">
+            <div class="section-title">
                 <h2>Meet Our Team</h2>
                 <p>The experts behind Velocity's innovation</p>
             </div>
-            <div class="team-grid" style="cursor: pointer;">
+            <div class="team-grid">
                 <div class="team-member">
-                    <img src="pics/women1.jpeg" alt="Alexa Morgan">
+                    <img src="pics/women1.jpeg" alt="Alexa Morgan" class="img-fluid">
                     <div class="member-info">
                         <h3>Alexa Morgan</h3>
                         <p>Founder & CEO</p>
@@ -644,7 +794,7 @@ footer {
                 </div>
 
                 <div class="team-member">
-                    <img src="pics/men1.jpeg" alt="James Wilson">
+                    <img src="pics/men1.jpeg" alt="James Wilson" class="img-fluid">
                     <div class="member-info">
                         <h3>James Wilson</h3>
                         <p>Head of Design</p>
@@ -653,7 +803,7 @@ footer {
                 </div>
 
                 <div class="team-member">
-                    <img src="pics/women2.jpeg" alt="Sarah Chen">
+                    <img src="pics/women2.jpeg" alt="Sarah Chen" class="img-fluid">
                     <div class="member-info">
                         <h3>Sarah Chen</h3>
                         <p>Materials Engineer</p>
@@ -662,7 +812,7 @@ footer {
                 </div>
 
                 <div class="team-member">
-                    <img src="pics/men2.jpeg" alt="Michael Rodriguez">
+                    <img src="pics/men2.jpeg" alt="Michael Rodriguez" class="img-fluid">
                     <div class="member-info">
                         <h3>Michael Rodriguez</h3>
                         <p>Product Testing</p>
@@ -675,30 +825,28 @@ footer {
 
     <section class="newsletter">
         <div class="container">
-            <div class="section-title" style="padding-left: 350px;">
+            <div class="section-title">
                 <h2>Our Partners</h2>
                 <p>Trusted by elite athletes and organizations</p>
             </div>
-            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 40px;">
-    <a href="https://www.olympics.com/" target="_blank">
-        <img src="https://via.placeholder.com/150x80?text=Olympics" alt="Olympics" style="filter: brightness(0) invert(1); height: 50px;">
-    </a>
-    <a href="https://www.ncaa.com/" target="_blank">
-        <img src="https://via.placeholder.com/150x80?text=NCAA" alt="NCAA" style="filter: brightness(0) invert(1); height: 50px;">
-    </a>
-    <a href="https://www.worldathletics.org/competitions/world-athletics-label-road-races" target="_blank">
-        <img src="https://via.placeholder.com/150x80?text=Marathon" alt="Marathon" style="filter: brightness(0) invert(1); height: 50px;">
-    </a>
-    <a href="https://www.teamusa.org/" target="_blank">
-        <img src="https://via.placeholder.com/150x80?text=Team+USA" alt="Team USA" style="filter: brightness(0) invert(1); height: 50px;">
-    </a>
-</div>
+            <div class="partner-logos d-flex justify-content-center flex-wrap gap-4 my-4">
+                <a href="https://www.olympics.com/" target="_blank">
+                    <img src="https://via.placeholder.com/150x80?text=Olympics" alt="Olympics" class="img-fluid" style="filter: brightness(0) invert(1); height: 50px;">
+                </a>
+                <a href="https://www.ncaa.com/" target="_blank">
+                    <img src="https://via.placeholder.com/150x80?text=NCAA" alt="NCAA" class="img-fluid" style="filter: brightness(0) invert(1); height: 50px;">
+                </a>
+                <a href="https://www.worldathletics.org/competitions/world-athletics-label-road-races" target="_blank">
+                    <img src="https://via.placeholder.com/150x80?text=Marathon" alt="Marathon" class="img-fluid" style="filter: brightness(0) invert(1); height: 50px;">
+                </a>
+                <a href="https://www.teamusa.org/" target="_blank">
+                    <img src="https://via.placeholder.com/150x80?text=Team+USA" alt="Team USA" class="img-fluid" style="filter: brightness(0) invert(1); height: 50px;">
+                </a>
+            </div>
         </div>
     </section>
 
-
-
-    <footer>
+     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-5">
@@ -758,33 +906,48 @@ footer {
 </footer>
 
 
+
     <script>
-
     window.addEventListener("load", function () {
+        setTimeout(function() {
+            const loader = document.getElementById("loader");
+            loader.classList.add("fade-out");
+            
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 500);
+        }, 2000); 
+    });
 
-    setTimeout(function() {
-      const loader = document.getElementById("loader");
-      loader.classList.add("fade-out");
-      
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 500);
-    }, 2000); 
-  });
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentPage = window.location.pathname.split("/").pop();
+        const links = document.querySelectorAll(".navbar-nav .nav-link, .dropdown-menu .dropdown-item");
 
-  document.addEventListener("DOMContentLoaded", function() {
-  const currentPage = window.location.pathname.split("/").pop();
-  const links = document.querySelectorAll(".navbar-nav .nav-link, .dropdown-menu .dropdown-item");
+        links.forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active");
+                const parentDropdown = link.closest(".dropdown");
+                if (parentDropdown) {
+                    parentDropdown.querySelector(".nav-link.dropdown-toggle").classList.add("active");
+                }
+            }
+        });
 
-  links.forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active");
-      const parentDropdown = link.closest(".dropdown");
-      if (parentDropdown) {
-        parentDropdown.querySelector(".nav-link.dropdown-toggle").classList.add("active");
-      }
-    }
-  });
-});
-
-  </script>
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    });
+    </script>
+</body>
+</html>

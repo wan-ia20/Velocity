@@ -333,133 +333,133 @@ font-size: 12px;
 
 @media (max-width: 768px) {
 .container-main {
-    min-height: 600px;
-    width: 100%;
-    border-radius: 0;
-    box-shadow: none;
+min-height: 600px;
+width: 100%;
+border-radius: 0;
+box-shadow: none;
 }
 
 .form-container {
-    padding: 0 20px;
+padding: 0 20px;
 }
 
 .sign-in-container,
 .sign-up-container {
-    width: 100%;
-    height: 50%;
-    position: relative;
-    opacity: 1;
-    z-index: 2;
-    transform: none;
+width: 100%;
+height: 50%;
+position: relative;
+opacity: 1;
+z-index: 2;
+transform: none;
 }
 
 .sign-up-container {
-    z-index: 1;
+z-index: 1;
 }
 
 .overlay-container {
-    display: none;
+display: none;
 }
 
 .container-main.right-panel-active .sign-in-container {
-    transform: translateY(100%);
-    z-index: 1;
+transform: translateY(100%);
+z-index: 1;
 }
 
 .container-main.right-panel-active .sign-up-container {
-    transform: translateY(0%);
-    z-index: 2;
-    animation: none;
+transform: translateY(0%);
+z-index: 2;
+animation: none;
 }
 
 
 .container-main.right-panel-active .sign-in-container,
 .container-main.right-panel-active .sign-up-container {
-    transition: transform 0.6s ease-in-out;
+transition: transform 0.6s ease-in-out;
 }
 
 
 .overlay-panel {
-    width: 100%;
-    height: 50%;
-    position: relative;
-    transform: none;
-    display: flex;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+width: 100%;
+height: 50%;
+position: relative;
+transform: none;
+display: flex;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
 }
 
 
 .container-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100%;
-    border-radius: 0;
-    box-shadow: none;
-    background-color: transparent;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+width: 100%;
+border-radius: 0;
+box-shadow: none;
+background-color: transparent;
 }
 
 .form-container {
-    position: relative;
-    height: auto;
-    width: 90%;
-    max-width: 400px;
-    margin-bottom: 20px;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    padding: 30px 20px;
+position: relative;
+height: auto;
+width: 90%;
+max-width: 400px;
+margin-bottom: 20px;
+transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+border-radius: 10px;
+box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+padding: 30px 20px;
 }
 
 .sign-in-container,
 .sign-up-container {
-    left: auto;
-    opacity: 1;
-    z-index: 1;
+left: auto;
+opacity: 1;
+z-index: 1;
 }
 
 .overlay-container {
-    display: none;
+display: none;
 }
 
 
 .container-main.right-panel-active .sign-in-container {
-    opacity: 0;
-    height: 0;
-    padding: 0;
-    margin-bottom: 0;
-    overflow: hidden;
+opacity: 0;
+height: 0;
+padding: 0;
+margin-bottom: 0;
+overflow: hidden;
 }
 .container-main.right-panel-active .sign-up-container {
-    opacity: 1;
-    height: auto;
-    padding: 30px 20px;
-    margin-bottom: 20px;
+opacity: 1;
+height: auto;
+padding: 30px 20px;
+margin-bottom: 20px;
 }
 
 
 .sign-up-container {
-    opacity: 0;
-    height: 0;
-    padding: 0;
-    margin-bottom: 0;
-    overflow: hidden;
+opacity: 0;
+height: 0;
+padding: 0;
+margin-bottom: 0;
+overflow: hidden;
 }
 
 
 .mobile-toggle-buttons {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 20px;
+display: flex;
+justify-content: center;
+width: 100%;
+margin-top: 20px;
 }
 .mobile-toggle-buttons button {
-    width: 45%;
-    margin: 0 5px;
+width: 45%;
+margin: 0 5px;
 }
 }
 </style>
@@ -527,7 +527,7 @@ font-size: 12px;
 
 
     <script>
-// Form switching functionality (original)
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
@@ -554,9 +554,8 @@ if (mobileSignInToggle && mobileSignUpToggle) {
     });
 }
 
-// New Validation and Modal Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Create modal element
+
     const modal = document.createElement('div');
     modal.id = 'successModal';
     modal.style.cssText = `
@@ -592,7 +591,6 @@ document.addEventListener('DOMContentLoaded', function() {
         signupPasswordInput.parentNode.insertBefore(errorElement, signupPasswordInput.nextSibling);
     }
 
-    // Sign Up Form Validation
     const signupForm = document.querySelector('.sign-up-container form');
     if (signupForm) {
         signupForm.addEventListener('submit', function(e) {
@@ -602,10 +600,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const password = signupForm.querySelector('input[type="password"]').value;
             const errorElement = signupForm.querySelector('.password-error');
             
-            // Reset error
             if (errorElement) errorElement.style.display = 'none';
             
-            // Validate password
             if (password.length < 8) {
                 if (errorElement) {
                     errorElement.textContent = 'Password must be at least 8 characters long';
@@ -613,22 +609,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 return;
             }
-            
-            // Validate email
+        
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 showModal('Please enter a valid email address');
                 return;
             }
             
-            // Show success modal
             showModal('Account created successfully!');
             
-            // Reset form
             signupForm.reset();
         });
     }
 
-    // Sign In Form Validation
     const signinForm = document.querySelector('.sign-in-container form');
     if (signinForm) {
         signinForm.addEventListener('submit', function(e) {
@@ -637,18 +629,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = signinForm.querySelector('input[type="email"]').value;
             const password = signinForm.querySelector('input[type="password"]').value;
             
-            // Simple validation
             if (!email || !password) {
                 showModal('Please fill in all fields');
                 return;
             }
-            
-            // Show success modal
+    
             showModal('Logged in successfully!');
         });
     }
 
-    // Modal function
+
     function showModal(message) {
         modal.innerHTML = `
             <p style="margin-bottom: 20px; font-size: 16px;">${message}</p>
@@ -665,7 +655,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         modal.style.display = 'block';
         
-        // Add overlay
+
         const overlay = document.createElement('div');
         overlay.id = 'modalOverlay';
         overlay.style.cssText = `
@@ -680,7 +670,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(overlay);
     }
 
-    // Close modal function
+
     window.closeModal = function() {
         document.getElementById('successModal').style.display = 'none';
         const overlay = document.getElementById('modalOverlay');
@@ -688,7 +678,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 });
 
-// Responsive adjustment (original)
+
 function setInitialMobileState() {
     if (window.innerWidth < 768) {
         container.classList.remove("right-panel-active"); 
