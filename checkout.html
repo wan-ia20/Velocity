@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOCITY | Premium Sports Gear & Wellness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-odtCj8i2Y+3sFl8vayB7Nq8VqCwJ9DLkFw9TFp1sMSbgyAU6fLZQ9r1+zAWRZZxqF3oy0GPfB8P0w1b8p5tK6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  </head>
+<style>
+    :root {
+    --primary: #e63946;
+    --primary-dark: #c1121f;
+    --secondary: #1d3557;
+    --secondary-light: #457b9d;
+    --light: #f8f9fa;
+    --light-alt: #f1faee;
+    --dark: #212529;
+    --dark-alt: #343a40;
+    --accent: #a8dadc;
+    --gray: #6c757d;
+    --light-gray: #e9ecef;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.4rem; }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--secondary);
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(230, 57, 70, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+.card-slim { 
+    border-radius:10px; 
+    box-shadow:0 6px 18px rgba(15,20,30,0.06); 
+}
+.small-muted { 
+    color:#6c757d; 
+    font-size:.9rem; 
+}
+#checkoutGrid { 
+    min-height:420px; 
+}
+.fade-out { 
+    animation: fadeOut 420ms ease forwards; 
+}
+.fade-in  { 
+    animation: fadeIn 420ms ease forwards; 
+}
+@keyframes fadeOut { 
+    from {opacity:1;
+    } 
+    to {opacity:0; 
+    transform: translateY(-8px);
+  } 
+}
+@keyframes fadeIn  { 
+    from {opacity:0; 
+    transform: translateY(12px);
+  } 
+    to {opacity:1; 
+    transform: translateY(0);
+  } 
+}
+.receipt { 
+    background:#fff; 
+    border:1px dashed #222; 
+    font-family: 'Poppins', sans-serif;
+    padding:18px; border-radius:8px;
+}
+.receipt h3 { 
+    font-family: "Montserrat", sans-serif; 
+    font-weight:700; margin-bottom:8px; 
+}
+.receipt .line { 
+    border-bottom:1px dotted #999; 
+    padding:8px 0; 
+    display:flex; 
+    justify-content:space-between; 
+}
+.receipt .total { 
+    font-weight:700; 
+    font-size:1.05rem; 
+    text-align:right; 
+    margin-top:12px; 
+}
+.custom-alert { 
+    position:fixed; 
+    top:18px; 
+    right:18px; 
+    background:#28a745; 
+    color:#fff; 
+    padding:10px 14px; 
+    border-radius:8px; 
+    box-shadow:0 6px 18px rgba(0,0,0,0.12); 
+    opacity:0; transform:translateY(-8px); 
+    transition: all .25s; 
+    z-index:9999;
+}
+.custom-alert.show { 
+    opacity:1; 
+    transform:translateY(0); 
+}
+  </style>
+</head>
+<body>
+
+<div class="container py-5">
+  <h2 class="mb-4 text-center">Checkout</h2>
+
+  <div id="checkoutGrid" class="row g-4">
+
+    <div id="leftColumn" class="col-lg-6">
+      <div class="card card-slim p-3">
+        <h5 class="mb-3">Your Items</h5>
+        <ul id="itemsList" class="list-group mb-3"></ul>
+
+        <div class="mt-2">
+          <div class="d-flex justify-content-between small-muted mb-1">
+            <div>Subtotal</div>
+            <div><strong id="subtotalText">$0.00</strong></div>
+          </div>
+          <div class="d-flex justify-content-between small-muted mb-1">
+            <div>Shipping</div>
+            <div id="shippingText"><strong>—</strong></div>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between fs-5">
+            <div><strong>Total</strong></div>
+            <div><strong id="grandTotalText">$0.00</strong></div>
+          </div>
+          <p id="freeShipNote" class="mt-2 small text-success" style="display:none;">
+            <i class="fa-solid fa-check-circle me-1"></i> Free shipping applied for orders $250 &amp; up
+          </p><br>
+          <a href="cart.html" class="btn">Return To Cart</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="rightColumn" class="col-lg-6">
+      <div class="card card-slim p-3">
+        <h5 class="mb-3">Customer Details</h5>
+        <form id="checkoutForm" class="row g-3" autocomplete="off" novalidate>
+          <div class="col-12">
+            <label for="fullname" class="form-label">Full name</label>
+            <input id="fullname" class="form-control" required />
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" type="email" class="form-control" required />
+          </div>
+          <div class="col-md-6">
+            <label for="phone" class="form-label">Phone</label>
+            <input id="phone" type="tel" class="form-control" required />
+          </div>
+          <div class="col-12">
+            <label for="address" class="form-label">Address</label>
+            <textarea id="address" class="form-control" rows="2" required></textarea>
+          </div>
+          <div class="col-12">
+            <label for="payment" class="form-label">Payment Method</label>
+            <select id="payment" class="form-select" required>
+              <option value="">Select payment</option>
+              <option value="Cash on Delivery">Cash on Delivery</option>
+              <option value="Credit/Debit Card">Credit/Debit Card</option>
+              <option value="PayPal">PayPal</option>
+            </select>
+          </div>
+
+          <div class="col-12 d-flex gap-2">
+            <button id="placeOrder" type="button" class="btn btn-primary w-100">Place Order</button>
+      
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="receiptWrap" class="mt-4" style="display:none;">
+    <div class="receipt mx-auto" style="max-width:760px;" id="receiptCard">
+      <!-- receiptContent will be injected here -->
+      <div id="receiptContent"></div>
+      <div class="d-flex gap-2 mt-3">
+        <button id="downloadBtn" class="btn btn-success"><i class="fa-solid fa-download me-2"></i>Download PDF</button>
+        <a href="index.html" class="btn btn-outline-secondary ms-auto">Continue shopping</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toastArea"></div>
+
+
+<script>
+
+function showToast(msg, ms = 3000) {
+  const box = document.createElement('div');
+  box.className = 'custom-alert';
+  box.innerHTML = `<i class="fa-solid fa-circle-check me-2"></i>${msg}`;
+  document.getElementById('toastArea').appendChild(box);
+  requestAnimationFrame(() => box.classList.add('show'));
+  setTimeout(() => { box.classList.remove('show'); setTimeout(() => box.remove(), 300); }, ms);
+}
+
+function safeName(item) {
+  return item.title || item.name || 'Item';
+}
+function safeQty(item) {
+  return (item.qty || item.quantity || 1);
+}
+
+let CART = [];        
+let SUBTOTAL = 0;
+let SHIPPING = 0;
+let TOTAL = 0;
+const SHIPPING_THRESHOLD = 250;
+const SHIPPING_FEE = 20;
+
+function loadCartFromStorage() {
+  CART = JSON.parse(localStorage.getItem('cart')) || [];
+
+  CART = CART.map(it => {
+    return {
+      title: it.title || it.name || 'Item',
+      price: parseFloat(it.price || 0) || 0,
+      qty: parseInt(it.qty || it.quantity || 1, 10) || 1,
+      ...it
+    };
+  });
+  recalcAndRender();
+}
+
+function recalcAndRender() {
+  SUBTOTAL = CART.reduce((s,i) => s + (i.price * i.qty), 0);
+  SHIPPING = (SUBTOTAL > 0 && SUBTOTAL < SHIPPING_THRESHOLD) ? SHIPPING_FEE : 0;
+  TOTAL = SUBTOTAL + SHIPPING;
+
+  const itemsList = document.getElementById('itemsList');
+  itemsList.innerHTML = '';
+
+  if (CART.length === 0) {
+    itemsList.innerHTML = `<li class="list-group-item text-center"><i class="fa-solid fa-cart-plus me-2"></i>Your cart is empty.</li>`;
+    document.getElementById('placeOrder').disabled = true;
+  } else {
+    CART.forEach((item, idx) => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item d-flex justify-content-between align-items-start';
+      li.innerHTML = `
+        <div>
+          <div class="fw-semibold">${item.title}</div>
+          <div class="small-muted">Qty: ${item.qty} · $${item.price.toFixed(2)} each</div>
+        </div>
+        <div class="text-end">
+          <div class="fw-bold text-success">$${(item.price * item.qty).toFixed(2)}</div>
+          <button class="btn btn-sm btn-outline-danger mt-2" onclick="removeItem(${idx})"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      `;
+      itemsList.appendChild(li);
+    });
+    document.getElementById('placeOrder').disabled = false;
+  }
+
+  document.getElementById('subtotalText').textContent = `$${SUBTOTAL.toFixed(2)}`;
+  document.getElementById('shippingText').innerHTML = SHIPPING > 0 ? `<strong>$${SHIPPING.toFixed(2)}</strong>` : `<strong>Free</strong>`;
+  document.getElementById('grandTotalText').textContent = `$${TOTAL.toFixed(2)}`;
+
+  document.getElementById('freeShipNote').style.display = (SHIPPING === 0 && SUBTOTAL >= SHIPPING_THRESHOLD) ? 'block' : 'none';
+}
+
+function removeItem(index) {
+  const removed = CART.splice(index,1)[0];
+  localStorage.setItem('cart', JSON.stringify(CART));
+  recalcAndRender();
+  showToast(`${removed.title} removed`);
+}
+
+function clearCart() {
+  CART = [];
+  localStorage.removeItem('cart');
+  recalcAndRender();
+  showToast('Cart cleared');
+}
+
+function validateForm() {
+  const name = document.getElementById('fullname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const payment = document.getElementById('payment').value;
+  if (!name || !email || !phone || !address || !payment) {
+    return false;
+  }
+  return true;
+}
+
+// 🔹 NEW FUNCTION to generate Order Number
+function generateOrderNumber() {
+  const now = new Date();
+  const date = now.toISOString().slice(0,10).replace(/-/g,""); // YYYYMMDD
+  const rand = Math.floor(1000 + Math.random() * 9000); // 4-digit random number
+  return `ORD-${date}-${rand}`;
+}
+
+function placeOrder() {
+  if (CART.length === 0) {
+    showToast('Your cart is empty', 2500);
+    return;
+  }
+  if (!validateForm()) {
+    showToast('Please fill all fields', 2500);
+    return;
+  }
+
+  const customer = {
+    name: document.getElementById('fullname').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    address: document.getElementById('address').value.trim(),
+    payment: document.getElementById('payment').value
+  };
+
+  const orderNumber = generateOrderNumber();  // ✅ Generate order number here
+
+  const receiptContent = document.getElementById('receiptContent');
+  let html = `<h3 class="text-center">VELOCITY — RECEIPT</h3>`;
+  html += `<div class="mb-2"><strong>Order Number:</strong> ${orderNumber}</div>`;  // ✅ Show in receipt
+  html += `<div class="mb-2"><strong>Customer</strong></div>`;
+  html += `<div class="small-muted">Name: </div><div>${customer.name}</div>`;
+  html += `<div class="small-muted">Email: </div><div>${customer.email}</div>`;
+  html += `<div class="small-muted">Phone: </div><div>${customer.phone}</div>`;
+  html += `<div class="small-muted">Address: </div><div>${customer.address}</div>`;
+  html += `<div class="small-muted">Payment: </div><div>${customer.payment}</div>`;
+  html += `<hr style="margin:12px 0">`;
+  html += `<div><strong>Items</strong></div>`;
+
+  CART.forEach(item => {
+    html += `<div class="line"><div>${item.title} (x${item.qty})</div><div>$${(item.price * item.qty).toFixed(2)}</div></div>`;
+  });
+
+  html += `<div class="line"><div>Subtotal</div><div>$${SUBTOTAL.toFixed(2)}</div></div>`;
+  html += `<div class="line"><div>Shipping</div><div>${SHIPPING > 0 ? '$' + SHIPPING.toFixed(2) : 'Free'}</div></div>`;
+  html += `<div class="total">Total: $${TOTAL.toFixed(2)}</div>`;
+  html += `<p class="text-center mt-3">Your order will be delivered to your doorstep within 2-3 business days</p>`;
+  html += `<p class="text-center mt-3">Thank you for your purchase!</p>`;
+
+  receiptContent.innerHTML = html;
+
+  const grid = document.getElementById('checkoutGrid');
+  grid.classList.add('fade-out');
+  setTimeout(() => {
+    grid.style.display = 'none';
+    const wrap = document.getElementById('receiptWrap');
+    wrap.style.display = 'block';
+    wrap.classList.add('fade-in');
+    localStorage.removeItem('cart');
+    showToast(`Order ${orderNumber} placed successfully`);  // ✅ Show order number in toast too
+  }, 420);
+}
+
+function loadHtml2Pdf(callback) {
+  if (typeof html2pdf !== 'undefined') {
+    callback();
+    return;
+  }
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+  script.onload = callback;
+  script.onerror = () => showToast('PDF library failed to load', 3000);
+  document.head.appendChild(script);
+}
+
+function downloadPDF() {
+  const element = document.getElementById('receiptCard');
+  if (!element) {
+    showToast('Receipt not found', 3000);
+    return;
+  }
+
+  loadHtml2Pdf(() => {
+    const opt = {
+      margin: 0.4,
+      filename: `velocity-receipt.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadCartFromStorage();
+  document.getElementById('placeOrder').addEventListener('click', placeOrder);
+  document.getElementById('downloadBtn').addEventListener('click', downloadPDF);
+});
+
+</script>
+
+
+</body>
+</html>

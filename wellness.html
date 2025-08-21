@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOCITY | Premium Sports Gear & Wellness</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+:root {
+    --primary: #e63946;
+    --primary-dark: #c1121f;
+    --secondary: #1d3557;
+    --secondary-light: #457b9d;
+    --light: #f8f9fa;
+    --light-alt: #f1faee;
+    --dark: #212529;
+    --dark-alt: #343a40;
+    --accent: #a8dadc;
+    --gray: #6c757d;
+    --light-gray: #e9ecef;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 0;
+    color: var(--dark);
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.4rem; }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(230, 57, 70, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.text-primary { color: var(--primary) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.bg-secondary { background-color: var(--secondary) !important; }
+.bg-light { background-color: var(--light) !important; }
+.bg-dark { background-color: var(--dark) !important; }
+
+.text-center { text-align: center; }
+
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.5s ease;
+}
+
+.page-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+header.scrolled {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--secondary);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+.logo span {
+  color: var(--primary);
+}
+
+.navbar-nav .nav-link {
+  color: var(--dark);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  margin: 0 6px;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 4px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary);
+}
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  bottom: 4px;
+  width: 70%;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.navbar-nav .nav-link.active {
+  color: var(--primary);
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px 0;
+  margin-top: 12px;
+}
+.dropdown-item {
+  padding: 10px 22px;
+  font-weight: 500;
+}
+.dropdown-item:hover {
+  background-color: var(--light-alt);
+  color: var(--primary);
+}
+
+/* === TOGGLER === */
+.navbar-toggler {
+  border: none;
+  font-size: 1.5rem;
+  color: var(--dark);
+  padding: 0.5rem;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-nav .fa-cart-shopping {
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+.user-info-form {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 40px;
+}
+.section-title {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--secondary);
+  position: relative;
+  display: inline-block;
+  margin: 0 auto 1.5rem;
+  padding: 20px;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+.tracker-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    display: none;
+    transition: all 0.5s ease;
+}
+.tracker-card.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.card-title {
+    color: var(--secondary);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+.btn-primary:hover {
+    background-color: #d62c3a;
+    border-color: #d62c3a;
+}
+.btn-secondary {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+}
+.btn-secondary:hover {
+    background-color: #142a4a;
+    border-color: #142a4a;
+}
+.water-cup {
+    width: 60px;
+    height: 80px;
+    background-color: #a8dadc;
+    border: 2px solid var(--secondary);
+    border-radius: 0 0 15px 15px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.water-cup:hover {
+    transform: translateY(-5px);
+}
+.water-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--accent);
+    transition: height 0.5s ease;
+}
+
+.mood-option {
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.mood-option:hover, .mood-option.selected {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.sleep-slider {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.exercise-item {
+    background-color: var(--light);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.progress {
+    height: 10px;
+    margin-top: 10px;
+}
+
+.report-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-top: 40px;
+    display: none;
+}
+
+.report-title {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.report-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.tracker-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}   
+
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 80px 0 30px;
+    position: relative;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.footer-logo span {
+    color: var(--primary);
+}
+
+.footer-about p {
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary);
+    transition: var(--transition);
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.copyright {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-menu-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.footer-menu-link:hover {
+    color: var(--primary);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-5px);
+}
+.btn-support {
+  background: var(--primary);
+  color: #fff !important;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s ease;
+}
+
+.btn-support:hover {
+  background: #e0484c;
+  transform: scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+    <div id="loader" class="page-loader">
+  <div class="text-center">
+    <div class="spinner-border text-danger" role="status" style="width: 3rem; height: 3rem;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+     <a href="home.html" class="navbar-brand logo">VELOC<span>ITY</span></a>
+    <p class="text-muted">Preparing your premium sports gear experience</p>
+  </div>
+</div>
+    
+<header id="header">
+<nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a href="index.html" class="navbar-brand logo">VELOC<span>ITY</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <div class="d-flex w-100 justify-content-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Products
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                                <li><a class="dropdown-item" href="nutrition.html">Supplements</a></li>
+                                <li><a class="dropdown-item" href="wearables.html">Wearables</a></li>
+                                <li><a class="dropdown-item" href="exercise.html">Train & Play</a></li>
+                                <li><a class="dropdown-item" href="flask.html">GYM Flask</a></li>
+                                <li><a class="dropdown-item" href="tech.html">GYM Tech</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kit.html">Kit Builder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="wellness.html">My Wellness</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faqs.html">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> <span class="d-lg-none ms-2">Cart</span></a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                    <a class="btn btn-support" href="contact.html">
+                      Support
+                    </a>
+                  </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <section class="athlete-hub">
+        <div class="container">
+            <h2 class="section-title">Athlete's Hub</h2>
+            
+            <div class="user-info-form" id="userInfoForm">
+                <h2 class="text-center mb-4">Let's Get Started</h2>
+                <form id="userForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="userName" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="userName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="userAge" class="form-label">Your Age</label>
+                            <input type="number" class="form-control" id="userAge" min="10" max="100" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="userWeight" class="form-label">Weight (kg)</label>
+                            <input type="number" class="form-control" id="userWeight" min="30" max="200" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="userHeight" class="form-label">Height (ft)</label>
+                            <input type="number" class="form-control" id="userHeight" min="3" max="8" step="0.1" required>
+                        </div>
+
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Start Tracking</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="tracker-card" id="waterTracker">
+                <div class="tracker-icon text-center">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h2 class="card-title text-center">Water Intake Tracker</h2>
+                <p class="text-center mb-4">Stay hydrated throughout the day. Your recommended daily intake: <span id="recommendedWater">0</span> ml</p>
+                
+                <div class="text-center mb-4">
+                    <h4>Today's Intake: <span id="currentWater">0</span> ml</h4>
+                    <div class="progress">
+                        <div id="waterProgress" class="progress-bar bg-info" role="progressbar" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="water-cup" data-ml="250" onclick="addWater(250)">
+                        <div class="water-fill" style="height: 30%"></div>
+                    </div>
+                    <div class="water-cup" data-ml="500" onclick="addWater(500)">
+                        <div class="water-fill" style="height: 60%"></div>
+                    </div>
+                    <div class="water-cup" data-ml="750" onclick="addWater(750)">
+                        <div class="water-fill" style="height: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary" onclick="prevCard('waterTracker')">Back</button>
+                    <button class="btn btn-primary" onclick="nextCard('waterTracker', 'moodTracker')">Next</button>
+                </div>
+            </div>
+            
+            <div class="tracker-card" id="moodTracker">
+                <div class="tracker-icon text-center">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <h2 class="card-title text-center">Mood Journal</h2>
+                <p class="text-center mb-4">How are you feeling today?</p>
+                
+                <div class="text-center mb-4">
+                    <input type="text" class="form-control mb-3" id="moodNote" placeholder="Add a note about your mood...">
+                    
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <div class="mood-option" data-mood="angry" onclick="selectMood(this, 'angry')">
+                            <i class="fas fa-angry"></i>
+                        </div>
+                        <div class="mood-option" data-mood="sad" onclick="selectMood(this, 'sad')">
+                            <i class="fas fa-sad-tear"></i>
+                        </div>
+                        <div class="mood-option" data-mood="meh" onclick="selectMood(this, 'meh')">
+                            <i class="fas fa-meh"></i>
+                        </div>
+                        <div class="mood-option" data-mood="smile" onclick="selectMood(this, 'smile')">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <div class="mood-option" data-mood="laugh" onclick="selectMood(this, 'laugh')">
+                            <i class="fas fa-laugh-beam"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary" onclick="prevCard('moodTracker')">Back</button>
+                    <button class="btn btn-primary" onclick="nextCard('moodTracker', 'sleepTracker')">Next</button>
+                </div>
+            </div>
+            
+            <div class="tracker-card" id="sleepTracker">
+                <div class="tracker-icon text-center">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <h2 class="card-title text-center">Sleep Tracker</h2>
+                <p class="text-center mb-4">Track your sleep duration and quality</p>
+                
+                <div class="mb-3">
+                    <label for="sleepHours" class="form-label">Hours Slept Last Night: <span id="sleepHoursValue">7</span></label>
+                    <input type="range" class="form-range sleep-slider" id="sleepHours" min="0" max="12" step="0.5" value="7" oninput="updateSleepValue(this.value)">
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label d-block mb-2">Sleep Quality</label>
+                    <div class="row g-2" id="sleepQualityButtons">
+                        <div class="col-6 col-sm-3">
+                            <input type="radio" class="btn-check" name="sleepQuality" id="qualityPoor" autocomplete="off" value="poor">
+                            <label class="btn btn-outline-danger w-100" for="qualityPoor">Poor</label>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <input type="radio" class="btn-check" name="sleepQuality" id="qualityFair" autocomplete="off" value="fair">
+                            <label class="btn btn-outline-warning w-100" for="qualityFair">Fair</label>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <input type="radio" class="btn-check" name="sleepQuality" id="qualityGood" autocomplete="off" value="good" checked>
+                            <label class="btn btn-outline-primary w-100" for="qualityGood">Good</label>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <input type="radio" class="btn-check" name="sleepQuality" id="qualityExcellent" autocomplete="off" value="excellent">
+                            <label class="btn btn-outline-success w-100" for="qualityExcellent">Excellent</label>
+                        </div>
+                    </div>
+                </div>
+                                
+                
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary" onclick="prevCard('sleepTracker')">Back</button>
+                    <button class="btn btn-primary" onclick="nextCard('sleepTracker', 'exerciseTracker')">Next</button>
+                </div>
+            </div>
+            
+            <div class="tracker-card" id="exerciseTracker">
+                <div class="tracker-icon text-center">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h2 class="card-title text-center">Exercise Tracker</h2>
+                <p class="text-center mb-4">Log your workout activities</p>
+                
+                <div id="exerciseItems">
+                    <div class="exercise-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5>Morning Run</h5>
+                                <p class="mb-1">30 minutes | Moderate intensity</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-outline-danger" onclick="removeExercise(this)"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <h5>Add New Exercise</h5>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <input type="text" class="form-control" id="exerciseName" placeholder="Exercise name">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <input type="number" class="form-control" id="exerciseDuration" placeholder="Duration (min)">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <select class="form-select" id="exerciseIntensity">
+                                <option value="low">Low intensity</option>
+                                <option value="moderate" selected>Moderate intensity</option>
+                                <option value="high">High intensity</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1 mb-3">
+                            <button class="btn btn-primary w-100" onclick="addExercise()"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary" onclick="prevCard('exerciseTracker')">Back</button>
+                    <button class="btn btn-primary" onclick="generateReport()">Generate Report</button>
+                </div>
+            </div>
+            
+            <div class="report-container" id="reportContainer">
+                <h2 class="report-title text-center">Your Wellness Report</h2>
+                
+                <div class="report-item">
+                    <h4>Personal Information</h4>
+                    <p id="reportPersonalInfo"></p>
+                </div>
+                
+                <div class="report-item">
+                    <h4>Hydration</h4>
+                    <p id="reportHydration"></p>
+                </div>
+                
+                <div class="report-item">
+                    <h4>Mood</h4>
+                    <p id="reportMood"></p>
+                </div>
+                
+                <div class="report-item">
+                    <h4>Sleep</h4>
+                    <p id="reportSleep"></p>
+                </div>
+                
+                <div class="report-item">
+                    <h4>Exercise</h4>
+                    <div id="reportExercise"></div>
+                </div>
+                
+                <div class="report-item">
+                    <h4>Recommendations</h4>
+                    <div id="reportRecommendations"></div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" onclick="resetTrackers()">Start New Tracking</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <a href="index.html" class="footer-logo">VELOC<span>ITY</span></a>
+                    <p class="footer-about">Empowering athletes to reach their peak performance through innovative products and tracking tools. We believe everyone deserves access to premium sports gear.</p>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-5">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="products.html" class="footer-link">Products</a></li>
+                        <li><a href="kit.html" class="footer-link">Kit Builder</a></li>
+                        <li><a href="wellness.html" class="footer-link">My Wellness</a></li>
+                        <li><a href="contact.html" class="footer-link">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h5 class="footer-title">Products</h5>
+                    <ul class="list-unstyled">
+                    <li><a href="nutrition.html" class="text-white footer-link">Supplements</a></li>
+                    <li><a href="wearables.html" class="text-white footer-link">Wearables</a></li>
+                    <li><a href="exercise.html" class="text-white footer-link">Train & Play</a></li>
+                    <li><a href="flask.html" class="text-white footer-link">GYM Flask</a></li>
+                    <li><a href="tech.html" class="text-white footer-link">GYM Tech</a></li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h5>Connect With Us</h5>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" class="text-white me-2 social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com" class="text-white me-2 social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com" class="text-white me-2 social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" class="text-white me-2 social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p class="mt-3">Subscribe to our newsletter</p>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Your email">
+                    <button class="btn btn-danger footer-btn" type="button">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4 bg-light">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">&copy; 2023 VELOCITY. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="privacy.html" class="text-white me-3 footer-link">Privacy Policy</a>
+                <a href="terms.html" class="text-white footer-link">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+
+    <script>
+
+    window.addEventListener("load", function () {
+
+    setTimeout(function() {
+      const loader = document.getElementById("loader");
+      loader.classList.add("fade-out");
+      
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 500);
+    }, 2000); 
+  });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const currentPage = window.location.pathname.split("/").pop();
+  const links = document.querySelectorAll(".navbar-nav .nav-link, .dropdown-menu .dropdown-item");
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+      const parentDropdown = link.closest(".dropdown");
+      if (parentDropdown) {
+        parentDropdown.querySelector(".nav-link.dropdown-toggle").classList.add("active");
+      }
+    }
+  });
+});
+
+        let userData = {};
+        let currentWater = 0;
+        let recommendedWater = 0;
+        let moodData = {};
+        let sleepData = {};
+        let exercises = [];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+
+            document.getElementById('userForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                startTracking();
+            });
+            
+            exercises.push({
+                name: "Morning Run",
+                duration: 30,
+                intensity: "moderate"
+            });
+        });
+        
+        function startTracking() {
+
+            userData = {
+                name: document.getElementById('userName').value,
+                age: document.getElementById('userAge').value,
+                weight: document.getElementById('userWeight').value,
+                height: document.getElementById('userHeight').value
+            };
+            
+            recommendedWater = Math.round(userData.weight * 30);
+            document.getElementById('recommendedWater').textContent = recommendedWater;
+            
+
+            document.getElementById('userInfoForm').style.display = 'none';
+            document.getElementById('waterTracker').classList.add('active');
+        }
+        
+        function addWater(amount) {
+            currentWater += amount;
+            document.getElementById('currentWater').textContent = currentWater;
+            
+            const progressPercent = Math.min((currentWater / recommendedWater) * 100, 100);
+            document.getElementById('waterProgress').style.width = progressPercent + '%';
+            
+            if (progressPercent < 50) {
+                document.getElementById('waterProgress').className = 'progress-bar bg-danger';
+            } else if (progressPercent < 80) {
+                document.getElementById('waterProgress').className = 'progress-bar bg-warning';
+            } else {
+                document.getElementById('waterProgress').className = 'progress-bar bg-success';
+            }
+        }
+        
+        function selectMood(element, mood) {
+
+            document.querySelectorAll('.mood-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            
+            moodData = {
+                mood: mood,
+                note: document.getElementById('moodNote').value
+            };
+        }
+        
+        function updateSleepValue(hours) {
+            document.getElementById('sleepHoursValue').textContent = hours;
+            
+            sleepData = {
+                hours: parseFloat(hours),
+                quality: document.querySelector('input[name="sleepQuality"]:checked').value
+            };
+        }
+        
+        function addExercise() {
+            const name = document.getElementById('exerciseName').value;
+            const duration = parseInt(document.getElementById('exerciseDuration').value);
+            const intensity = document.getElementById('exerciseIntensity').value;
+            
+            if (name && duration) {
+                exercises.push({ name, duration, intensity });
+                renderExercises();
+            
+                document.getElementById('exerciseName').value = '';
+                document.getElementById('exerciseDuration').value = '';
+            }
+        }
+        
+        function removeExercise(button) {
+            const item = button.closest('.exercise-item');
+            const index = Array.from(item.parentNode.children).indexOf(item) - 1; 
+            exercises.splice(index, 1);
+            renderExercises();
+        }
+        
+        function renderExercises() {
+            const container = document.getElementById('exerciseItems');
+            container.innerHTML = '';
+            
+            exercises.forEach(exercise => {
+                const item = document.createElement('div');
+                item.className = 'exercise-item';
+                item.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5>${exercise.name}</h5>
+                            <p class="mb-1">${exercise.duration} minutes | ${exercise.intensity.charAt(0).toUpperCase() + exercise.intensity.slice(1)} intensity</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-sm btn-outline-danger" onclick="removeExercise(this)"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+        
+        function nextCard(currentId, nextId) {
+            document.getElementById(currentId).classList.remove('active');
+            document.getElementById(nextId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function prevCard(currentId) {
+            let prevId = '';
+            
+            if (currentId === 'moodTracker') prevId = 'waterTracker';
+            else if (currentId === 'sleepTracker') prevId = 'moodTracker';
+            else if (currentId === 'exerciseTracker') prevId = 'sleepTracker';
+            
+            document.getElementById(currentId).classList.remove('active');
+            document.getElementById(prevId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+
+        function generateReport() {
+            document.getElementById('exerciseTracker').classList.remove('active');
+            document.getElementById('reportContainer').style.display = 'block';
+            
+            document.getElementById('reportPersonalInfo').innerHTML = `
+                <strong>Name:</strong> ${userData.name}<br>
+                <strong>Age:</strong> ${userData.age}<br>
+                <strong>Weight:</strong> ${userData.weight} kg<br>
+                <strong>Height:</strong> ${userData.height} ft
+            `;
+            
+            const hydrationPercent = Math.round((currentWater / recommendedWater) * 100);
+            let hydrationMessage = '';
+            
+            if (hydrationPercent < 50) {
+                hydrationMessage = 'You need to drink more water to stay properly hydrated.';
+            } else if (hydrationPercent < 80) {
+                hydrationMessage = 'You\'re getting there, but could still drink more water.';
+            } else if (hydrationPercent < 100) {
+                hydrationMessage = 'Good job! You\'re almost at your recommended water intake.';
+            } else {
+                hydrationMessage = 'Excellent! You\'ve met your daily water intake goal.';
+            }
+            
+            document.getElementById('reportHydration').innerHTML = `
+                You consumed <strong>${currentWater} ml</strong> of water today (${hydrationPercent}% of your recommended ${recommendedWater} ml).<br>
+                ${hydrationMessage}
+            `;
+            
+            const moodEmoji = {
+                'angry': '😠',
+                'sad': '😢',
+                'meh': '😐',
+                'smile': '😊',
+                'laugh': '😄'
+            };
+            
+            document.getElementById('reportMood').innerHTML = `
+                Your mood today: <strong>${moodData.mood ? moodData.mood.charAt(0).toUpperCase() + moodData.mood.slice(1) : 'Not recorded'}</strong> 
+                ${moodData.mood ? moodEmoji[moodData.mood] : ''}<br>
+                ${moodData.note ? `<em>"${moodData.note}"</em>` : ''}
+            `;
+            
+            const sleepQualityMap = {
+                'poor': 'Poor 😴',
+                'fair': 'Fair 😐',
+                'good': 'Good 😊',
+                'excellent': 'Excellent 😄'
+            };
+            
+            let sleepMessage = '';
+            if (sleepData.hours < 6) {
+                sleepMessage = 'You should aim for more sleep to support recovery and performance.';
+            } else if (sleepData.hours < 7.5) {
+                sleepMessage = 'Your sleep duration is adequate, but more would be beneficial.';
+            } else if (sleepData.hours < 9) {
+                sleepMessage = 'Great job! This is the ideal sleep range for athletes.';
+            } else {
+                sleepMessage = 'You slept well, but be careful not to oversleep regularly.';
+            }
+            
+            document.getElementById('reportSleep').innerHTML = `
+                You slept <strong>${sleepData.hours} hours</strong> last night with <strong>${sleepQualityMap[sleepData.quality]}</strong> quality.<br>
+                ${sleepMessage}
+            `;
+            
+            const exerciseContainer = document.getElementById('reportExercise');
+            exerciseContainer.innerHTML = '';
+            
+            if (exercises.length > 0) {
+                const totalMinutes = exercises.reduce((sum, ex) => sum + ex.duration, 0);
+                const intensityCount = {
+                    low: exercises.filter(ex => ex.intensity === 'low').length,
+                    moderate: exercises.filter(ex => ex.intensity === 'moderate').length,
+                    high: exercises.filter(ex => ex.intensity === 'high').length
+                };
+                
+                const exerciseSummary = document.createElement('div');
+                exerciseSummary.innerHTML = `
+                    <p>You completed <strong>${exercises.length} activities</strong> totaling <strong>${totalMinutes} minutes</strong> of exercise:</p>
+                    <ul>
+                        <li>Low intensity: ${intensityCount.low}</li>
+                        <li>Moderate intensity: ${intensityCount.moderate}</li>
+                        <li>High intensity: ${intensityCount.high}</li>
+                    </ul>
+                    <p>Activities:</p>
+                    <ul>
+                        ${exercises.map(ex => `<li>${ex.name} (${ex.duration} min, ${ex.intensity})</li>`).join('')}
+                    </ul>
+                `;
+                exerciseContainer.appendChild(exerciseSummary);
+            } else {
+                exerciseContainer.innerHTML = '<p>No exercises recorded today.</p>';
+            }
+            
+            const recommendations = [];
+            
+            if (hydrationPercent < 80) {
+                recommendations.push('Increase your water intake to stay properly hydrated, especially around workouts.');
+            }
+            
+            if (sleepData.hours < 7) {
+                recommendations.push('Prioritize getting at least 7-9 hours of sleep for optimal recovery.');
+            } else if (sleepData.quality === 'poor' || sleepData.quality === 'fair') {
+                recommendations.push('Improve sleep quality by maintaining a consistent bedtime routine and limiting screen time before bed.');
+            }
+            
+            if (exercises.length === 0) {
+                recommendations.push('Try to include at least 30 minutes of moderate activity in your daily routine.');
+            } else if (!exercises.some(ex => ex.intensity === 'high')) {
+                recommendations.push('Consider adding some high-intensity workouts to improve cardiovascular fitness.');
+            }
+            
+            if (moodData.mood === 'angry' || moodData.mood === 'sad') {
+                recommendations.push('Practice mindfulness or meditation to help improve your mood and reduce stress.');
+            }
+            
+            const recommendationsContainer = document.getElementById('reportRecommendations');
+            if (recommendations.length > 0) {
+                recommendationsContainer.innerHTML = `
+                    <ul>
+                        ${recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                    </ul>
+                `;
+            } else {
+                recommendationsContainer.innerHTML = '<p>Great job! You\'re doing well on all fronts. Keep it up!</p>';
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function resetTrackers() {
+
+            currentWater = 0;
+            moodData = {};
+            sleepData = {};
+            exercises = [];
+            
+            document.getElementById('currentWater').textContent = '0';
+            document.getElementById('waterProgress').style.width = '0%';
+            document.getElementById('waterProgress').className = 'progress-bar bg-info';
+            
+            document.querySelectorAll('.mood-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            document.getElementById('moodNote').value = '';
+            
+            document.getElementById('sleepHours').value = '7';
+            document.getElementById('sleepHoursValue').textContent = '7';
+            document.getElementById('qualityGood').checked = true;
+            
+            exercises = [{
+                name: "Morning Run",
+                duration: 30,
+                intensity: "moderate"
+            }];
+            renderExercises();
+            
+            document.getElementById('reportContainer').style.display = 'none';
+            document.getElementById('userInfoForm').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    
+</body>
+</html>

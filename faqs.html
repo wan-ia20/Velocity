@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELOCITY | Premium Sports Gear & Wellness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+    --primary: #e63946;
+    --primary-dark: #c1121f;
+    --secondary: #1d3557;
+    --secondary-light: #457b9d;
+    --light: #f8f9fa;
+    --light-alt: #f1faee;
+    --dark: #212529;
+    --dark-alt: #343a40;
+    --accent: #a8dadc;
+    --gray: #6c757d;
+    --light-gray: #e9ecef;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 0;
+    color: var(--dark);
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.4rem; }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(230, 57, 70, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.text-primary { color: var(--primary) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.bg-secondary { background-color: var(--secondary) !important; }
+.bg-light { background-color: var(--light) !important; }
+.bg-dark { background-color: var(--dark) !important; }
+
+.text-center { text-align: center; }
+
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.5s ease;
+}
+
+.page-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+header.scrolled {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--secondary);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+.logo span {
+  color: var(--primary);
+}
+
+.navbar-nav .nav-link {
+  color: var(--dark);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  margin: 0 6px;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 4px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary);
+}
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  bottom: 4px;
+  width: 70%;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.navbar-nav .nav-link.active {
+  color: var(--primary);
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px 0;
+  margin-top: 12px;
+}
+.dropdown-item {
+  padding: 10px 22px;
+  font-weight: 500;
+}
+.dropdown-item:hover {
+  background-color: var(--light-alt);
+  color: var(--primary);
+}
+
+.navbar-toggler {
+  border: none;
+  font-size: 1.5rem;
+  color: var(--dark);
+  padding: 0.5rem;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-nav .fa-cart-shopping {
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 80px 0 30px;
+    position: relative;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.footer-logo span {
+    color: var(--primary);
+}
+
+.footer-about p {
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary);
+    transition: var(--transition);
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.copyright {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-menu-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.footer-menu-link:hover {
+    color: var(--primary);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-5px);
+}
+.btn-support {
+  background: var(--primary);
+  color: #fff !important;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s ease;
+}
+
+.btn-support:hover {
+  background: #e0484c;
+  transform: scale(1.05);
+}        
+.text-center {
+text-align: center;
+}
+
+/* FAQ Styles */
+.faq-section {
+background-color: white;
+border-radius: 10px;
+padding: 40px;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.faq-header {
+text-align: center;
+margin-bottom: 40px;
+}
+
+.faq-header h2 {
+position: relative;
+display: inline-block;
+padding-bottom: 10px;
+}
+
+.faq-header h2::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 80px;
+height: 3px;
+background-color: var(--primary);
+}
+
+.faq-item {
+margin-bottom: 20px;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+padding: 20px;
+background-color: var(--light);
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-weight: 600;
+color: var(--secondary);
+}
+
+.faq-question i {
+transition: transform 0.3s ease;
+}
+
+.faq-answer {
+padding: 0 20px;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease, padding 0.3s ease;
+background-color: white;
+color: #555;
+}
+
+.faq-item.active .faq-question i {
+transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+max-height: 500px;
+padding: 20px;
+}
+
+.faq-category {
+margin-bottom: 40px;
+}
+
+.faq-category h3 {
+color: var(--primary);
+border-bottom: 2px solid var(--accent);
+padding-bottom: 10px;
+margin-bottom: 20px;
+}
+
+.contact-prompt {
+background-color: var(--accent);
+padding: 30px;
+border-radius: 10px;
+text-align: center;
+margin-top: 40px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+.faq-section {
+    padding: 20px;
+}
+
+.faq-question {
+    padding: 15px;
+}
+
+.faq-answer {
+    padding: 0 15px;
+}
+
+.faq-item.active .faq-answer {
+    padding: 15px;
+}
+}
+    </style>
+</head>
+<body>
+    
+<div id="loader" class="page-loader">
+  <div class="text-center">
+    <div class="spinner-border text-danger" role="status" style="width: 3rem; height: 3rem;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+     <a href="home.html" class="navbar-brand logo">VELOC<span>ITY</span></a>
+    <p class="text-muted">Preparing your premium sports gear experience</p>
+  </div>
+</div>
+    
+<header id="header">
+<nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a href="index.html" class="navbar-brand logo">VELOC<span>ITY</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <div class="d-flex w-100 justify-content-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Products
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                                <li><a class="dropdown-item" href="nutrition.html">Supplements</a></li>
+                                <li><a class="dropdown-item" href="wearables.html">Wearables</a></li>
+                                <li><a class="dropdown-item" href="exercise.html">Train & Play</a></li>
+                                <li><a class="dropdown-item" href="flask.html">GYM Flask</a></li>
+                                <li><a class="dropdown-item" href="tech.html">GYM Tech</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kit.html">Kit Builder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="wellness.html">My Wellness</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faqs.html">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> <span class="d-lg-none ms-2">Cart</span></a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                    <a class="btn btn-support" href="contact.html">
+                      Support
+                    </a>
+                  </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <section id="faq-page" class="page">
+        <div class="container">
+            <div class="faq-section">
+                <div class="faq-header">
+                    <h2 style="color: var(--secondary);">Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about our products and services</p>
+                </div>
+                
+                <div class="faq-category">
+                    <h3>Product Information</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What materials are used in Velocity sports accessories? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our sports accessories are made from high-quality, durable materials designed for athletic performance. We use moisture-wicking fabrics, lightweight polymers, and premium metals in our products. All materials are tested for durability, comfort, and performance under athletic conditions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How do I choose the right size for sports gear? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We provide detailed size charts for each product category on our website. For clothing, measure your chest, waist, and hips and compare with our size chart. For equipment like gloves or shoes, we recommend measuring your hand or foot and referring to our specific sizing guides. If you're between sizes, we suggest sizing up for comfort during physical activity.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Are Velocity products suitable for professional athletes? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! Many professional athletes use Velocity products. Our gear is designed to meet the demands of high-performance athletics. We work with sports professionals during our product development process to ensure our accessories can withstand intense training and competition conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3>Orders & Shipping</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How long does shipping take? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer several shipping options:</p>
+                            <ul>
+                                <li>Standard Shipping: 3-5 business days</li>
+                                <li>Express Shipping: 2-3 business days</li>
+                                <li>Next-Day Delivery: Available for most locations (order before 2 PM local time)</li>
+                            </ul>
+                            <p>International shipping typically takes 7-14 business days depending on the destination.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Do you ship internationally? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we ship to over 50 countries worldwide. International shipping rates and delivery times vary by location. You can view the shipping cost during checkout by entering your destination country. Please note that customers are responsible for any customs duties or import taxes that may apply.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I modify or cancel my order after placing it? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can modify or cancel your order within 1 hour of placing it by contacting our customer service team. After this window, your order moves to our fulfillment center and cannot be modified. If you need to make changes after this period, you may need to return the items once received (following our return policy).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3>Returns & Warranty</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What is your return policy? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer a 30-day return policy for all unused items in their original packaging with tags attached. For defective products, we provide a full refund or exchange within 90 days of purchase. To initiate a return, please visit our Returns Portal or contact our customer service team.</p>
+                            <p>Some items like personalized products or clearance items may be final sale and not eligible for return unless defective.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Do your products come with a warranty? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, most Velocity products come with a manufacturer's warranty against defects in materials and workmanship. The warranty period varies by product:</p>
+                            <ul>
+                                <li>Sports equipment: 1-2 years depending on the product</li>
+                                <li>Electronics: 1 year</li>
+                                <li>Apparel: 6 months for manufacturing defects</li>
+                            </ul>
+                            <p>Please refer to the specific product page or documentation for warranty details.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How do I make a warranty claim? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To make a warranty claim, please contact our customer service team with your order number and details about the issue. We may require photos or a description of the defect. For eligible claims, we will typically repair or replace the item, or provide a refund at our discretion.</p>
+                            <p>Please note that the warranty does not cover damage caused by misuse, accidents, modifications, or normal wear and tear.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3>Product Care</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How should I clean and maintain my Velocity gear? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Proper care will extend the life of your sports accessories:</p>
+                            <ul>
+                                <li>Apparel: Machine wash cold with like colors, tumble dry low</li>
+                                <li>Equipment: Wipe with a damp cloth and mild soap, air dry completely</li>
+                                <li>Electronics: Follow the specific cleaning instructions in the product manual</li>
+                                <li>Footwear: Clean with a soft brush and mild detergent, air dry away from direct heat</li>
+                            </ul>
+                            <p>Always check the care label on each product for specific instructions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How do I store sports equipment during off-season? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Proper storage is essential for maintaining your equipment:</p>
+                            <ol>
+                                <li>Clean all items thoroughly before storage</li>
+                                <li>Ensure everything is completely dry to prevent mold/mildew</li>
+                                <li>Store in a cool, dry place away from direct sunlight</li>
+                                <li>Use breathable storage containers rather than plastic bags</li>
+                                <li>For inflatable items, deflate partially to prevent stress on seams</li>
+                                <li>Loosen tension on items like racquet strings or bow limbs</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-prompt">
+                    <h3>Still have questions?</h3>
+                    <p>Our customer service team is here to help you with any additional questions you may have.</p>
+                    <a href="contact.html" class="btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <a href="index.html" class="footer-logo">VELOC<span>ITY</span></a>
+                    <p class="footer-about">Empowering athletes to reach their peak performance through innovative products and tracking tools. We believe everyone deserves access to premium sports gear.</p>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-5">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="products.html" class="footer-link">Products</a></li>
+                        <li><a href="kit.html" class="footer-link">Kit Builder</a></li>
+                        <li><a href="wellness.html" class="footer-link">My Wellness</a></li>
+                        <li><a href="contact.html" class="footer-link">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h5 class="footer-title">Products</h5>
+                    <ul class="list-unstyled">
+                    <li><a href="nutrition.html" class="text-white footer-link">Supplements</a></li>
+                    <li><a href="wearables.html" class="text-white footer-link">Wearables</a></li>
+                    <li><a href="exercise.html" class="text-white footer-link">Train & Play</a></li>
+                    <li><a href="flask.html" class="text-white footer-link">GYM Flask</a></li>
+                    <li><a href="tech.html" class="text-white footer-link">GYM Tech</a></li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h5>Connect With Us</h5>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" class="text-white me-2 social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com" class="text-white me-2 social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com" class="text-white me-2 social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" class="text-white me-2 social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p class="mt-3">Subscribe to our newsletter</p>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Your email">
+                    <button class="btn btn-danger footer-btn" type="button">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4 bg-light">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">&copy; 2023 VELOCITY. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="privacy.html" class="text-white me-3 footer-link">Privacy Policy</a>
+                <a href="terms.html" class="text-white footer-link">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+
+    <script>
+
+window.addEventListener("load", function () {
+
+    setTimeout(function() {
+      const loader = document.getElementById("loader");
+      loader.classList.add("fade-out");
+      
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 500);
+    }, 2000); 
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+  const currentPage = window.location.pathname.split("/").pop();
+  const links = document.querySelectorAll(".navbar-nav .nav-link, .dropdown-menu .dropdown-item");
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+
+      const parentDropdown = link.closest(".dropdown");
+      if (parentDropdown) {
+        parentDropdown.querySelector(".nav-link.dropdown-toggle").classList.add("active");
+      }
+    }
+  });
+});
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Optional: Open specific FAQ based on URL hash
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const targetFaq = document.getElementById(hash);
+                if (targetFaq) {
+                    targetFaq.classList.add('active');
+                    targetFaq.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

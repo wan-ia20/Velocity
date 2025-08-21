@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOCITY | Premium Sports Gear & Wellness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+:root {
+--primary: #e63946;
+--primary-dark: #c1121f;
+--secondary: #1d3557;
+--secondary-light: #457b9d;
+--light: #f8f9fa;
+--light-alt: #f1faee;
+--dark: #212529;
+--dark-alt: #343a40;
+--accent: #a8dadc;
+--gray: #6c757d;
+--light-gray: #e9ecef;
+--box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+--transition: all 0.3s ease-in-out;
+}
+
+* {
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Montserrat', sans-serif;
+background: #f6f5ee;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+margin: 0;
+overflow-x: hidden;
+}
+
+.back-to-home-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(29, 53, 87, 0.2);
+  border-radius: 20px;
+  padding: 8px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d3557;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.back-to-home-btn:hover {
+  background-color: #1d3557;
+  color: white;
+  border-color: #1d3557;
+  transform: translateX(-3px);
+}
+
+.back-to-home-btn i {
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .back-to-home-btn {
+    top: 15px;
+    left: 15px;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 768px) {
+.back-to-home-btn {
+    top: 15px;
+    left: 15px;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+}
+h2 {
+font-weight: bold;
+margin: 0;
+}
+
+h1 {
+font-weight: bold;
+margin: 0;
+}
+
+p {
+font-size: 14px;
+font-weight: 100;
+line-height: 20px;
+letter-spacing: 0.5px;
+margin: 20px 0 30px;
+}
+
+span {
+font-size: 12px;
+}
+
+a {
+color: #333;
+font-size: 14px;
+text-decoration: none;
+margin: 15px 0;
+}
+
+.container-main {
+background-color: #fff;
+border-radius: 10px;
+box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+            0 10px 10px rgba(0,0,0,0.22);
+position: relative;
+overflow: hidden;
+width: 768px;
+max-width: 100%;
+min-height: 480px;
+}
+
+.form-container {
+position: absolute;
+top: 0;
+height: 100%;
+transition: all 0.6s ease-in-out;
+background-color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+padding: 0 50px;
+text-align: center;
+}
+
+.sign-in-container {
+left: 0;
+width: 50%;
+z-index: 2;
+}
+
+.sign-up-container {
+left: 0;
+width: 50%;
+opacity: 0;
+z-index: 1;
+}
+
+.container-main.right-panel-active .sign-in-container {
+transform: translateX(100%);
+}
+
+.container-main.right-panel-active .sign-up-container {
+transform: translateX(100%);
+opacity: 1;
+z-index: 5;
+animation: show 0.6s;
+}
+
+@keyframes show {
+0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+}
+50%, 100% {
+    opacity: 1;
+    z-index: 5;
+}
+}
+
+.overlay-container {
+position: absolute;
+top: 0;
+left: 50%;
+width: 50%;
+height: 100%;
+overflow: hidden;
+transition: transform 0.6s ease-in-out;
+z-index: 100;
+}
+
+.container-main.right-panel-active .overlay-container {
+transform: translateX(-100%);
+}
+
+.overlay {
+background: var(--secondary); 
+background-repeat: no-repeat;
+background-size: cover;
+background-position: 0 0;
+color: #FFFFFF;
+position: relative;
+left: -100%;
+height: 100%;
+width: 200%;
+transform: translateX(0);
+transition: transform 0.6s ease-in-out;
+}
+
+.container-main.right-panel-active .overlay {
+transform: translateX(50%);
+}
+
+.overlay-panel {
+position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+padding: 0 40px;
+text-align: center;
+top: 0;
+height: 100%;
+width: 50%;
+transform: translateX(0);
+transition: transform 0.6s ease-in-out;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.overlay-left {
+transform: translateX(-20%);
+background-image: url('pics/foot\ ball\ img.jpg'); 
+background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('pics/foot\ ball\ img.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.container-main.right-panel-active .overlay-left {
+transform: translateX(0);
+}
+
+.overlay-right {
+right: 0;
+transform: translateX(0);
+background-image: url('pics/basket\ ball\ img.jpg'); 
+background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('pics/basket\ ball\ img.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.container-main.right-panel-active .overlay-right {
+transform: translateX(20%);
+}
+
+button {
+border-radius: 20px;
+border: 1px solid #1d3557;
+background-color: #1d3557;
+color: #FFFFFF;
+font-size: 12px;
+font-weight: bold;
+padding: 12px 45px;
+letter-spacing: 1px;
+text-transform: uppercase;
+transition: transform 80ms ease-in;
+cursor: pointer;
+}
+
+button.ghost {
+background-color: transparent;
+border-color: #ccc;
+color: #ccc; 
+transition: all 0.3s ease-in-out; 
+}
+
+button.ghost:hover {
+background-color: transparent;
+border-color: #FFFFFF;
+color: #FFFFFF; 
+}
+
+button:active {
+transform: scale(0.95);
+}
+
+button:focus {
+outline: none;
+}
+
+form {
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+input {
+background-color: #eee;
+border: none;
+padding: 12px 15px;
+margin: 8px 0;
+width: 100%;
+border-radius: 5px;
+}
+select {
+background-color: #eee;
+border: none;
+padding: 12px 15px;
+margin: 8px 0;
+width: 100%;
+border-radius: 5px;
+}
+.social-icons {
+margin: 20px 0;
+}
+
+.social-icons a {
+border: 1px solid #DDDDDD;
+border-radius: 50%;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+margin: 0 5px;
+height: 40px;
+width: 40px;
+color: #333;
+transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+background-color: #1d3557;
+color: #fff;
+}
+
+@media (max-width: 768px) {
+.container-main {
+min-height: 600px;
+width: 100%;
+border-radius: 0;
+box-shadow: none;
+}
+
+.form-container {
+padding: 0 20px;
+}
+
+.sign-in-container,
+.sign-up-container {
+width: 100%;
+height: 50%;
+position: relative;
+opacity: 1;
+z-index: 2;
+transform: none;
+}
+
+.sign-up-container {
+z-index: 1;
+}
+
+.overlay-container {
+display: none;
+}
+
+.container-main.right-panel-active .sign-in-container {
+transform: translateY(100%);
+z-index: 1;
+}
+
+.container-main.right-panel-active .sign-up-container {
+transform: translateY(0%);
+z-index: 2;
+animation: none;
+}
+
+
+.container-main.right-panel-active .sign-in-container,
+.container-main.right-panel-active .sign-up-container {
+transition: transform 0.6s ease-in-out;
+}
+
+
+.overlay-panel {
+width: 100%;
+height: 50%;
+position: relative;
+transform: none;
+display: flex;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+
+.container-main {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+width: 100%;
+border-radius: 0;
+box-shadow: none;
+background-color: transparent;
+}
+
+.form-container {
+position: relative;
+height: auto;
+width: 90%;
+max-width: 400px;
+margin-bottom: 20px;
+transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+border-radius: 10px;
+box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+padding: 30px 20px;
+}
+
+.sign-in-container,
+.sign-up-container {
+left: auto;
+opacity: 1;
+z-index: 1;
+}
+
+.overlay-container {
+display: none;
+}
+
+
+.container-main.right-panel-active .sign-in-container {
+opacity: 0;
+height: 0;
+padding: 0;
+margin-bottom: 0;
+overflow: hidden;
+}
+.container-main.right-panel-active .sign-up-container {
+opacity: 1;
+height: auto;
+padding: 30px 20px;
+margin-bottom: 20px;
+}
+
+
+.sign-up-container {
+opacity: 0;
+height: 0;
+padding: 0;
+margin-bottom: 0;
+overflow: hidden;
+}
+
+
+.mobile-toggle-buttons {
+display: flex;
+justify-content: center;
+width: 100%;
+margin-top: 20px;
+}
+.mobile-toggle-buttons button {
+width: 45%;
+margin: 0 5px;
+}
+}
+</style>
+</head>
+<body class="d-flex justify-content-center align-items-center flex-column min-vh-100 bg-light">
+    <a href="index.html" class="back-to-home-btn" title="Return to Home">
+  <i class="fas fa-arrow-left"></i> Return to Home
+</a>
+
+    <div class="container-main" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#" method="post" class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                <h2 class="mb-3">Need to Return Something?</h2>
+                <input type="text" class="form-control mb-2" placeholder="Order Id" required />
+                <input type="email" class="form-control mb-2" placeholder="Email" required />
+                <select class="form-control mb-2 form-select" id="reason" name="reason">
+                <option value="">Select a reason</option>
+                <option value="size">Wrong Size</option>
+                <option value="damaged">Damaged Item</option>
+                <option value="wrong">Wrong Product</option>
+                <option value="quality">Not Satisfied with Quality</option>
+                <option value="other">Other</option>
+                </select>
+                <select class="form-control mb-2 form-select" id="returnMethod" name="returnMethod" required>
+                <option selected disabled>Select Return Method</option>
+                <option value="pickup">Pickup from My Address</option>
+                <option value="dropoff">Drop-off at Store / Courier</option>
+                </select>
+                <br>
+                <button type="submit" class="btn btn-dark">Submit Request</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+            <form action="#" method="post" class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                <h2 class="mb-3">We’d Love to Hear From You</h2>
+                <div class="social-icons mb-3">
+                    <a href="https://www.google.co.uk/" class="social"><i class="fab fa-google"></i></a>
+                    <a href="https://www.facebook.com/" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://github.com/" class="social"><i class="fab fa-github"></i></a>
+                    <a href="https://pk.linkedin.com/" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <input type="text" class="form-control mb-2" placeholder="Name" required />
+                <input type="email" class="form-control mb-2" placeholder="Email" required />
+                <textarea class="form-control mb-3" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-dark">Send Message</button>
+                
+            </form>
+        </div>
+
+        <div class="overlay-container d-none d-md-block"> <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Got questions?</h1>
+                    <p>We’ve got answers.</p>
+                    <button class="ghost btn btn-light" id="signIn">Reach Out</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Change your mind, not your style.</h1>
+                    <p>Send it back, stress-free.</p>
+                    <button class="ghost btn btn-light" id="signUp">Start Return</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mobile-toggle-buttons d-md-none mt-4">
+        <button class="btn btn-secondary me-2" id="mobileSignInToggle">Sign In</button>
+        <button class="btn btn-secondary ms-2" id="mobileSignUpToggle">Sign Up</button>
+    </div>
+
+
+<script>
+
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+const mobileSignInToggle = document.getElementById('mobileSignInToggle');
+const mobileSignUpToggle = document.getElementById('mobileSignUpToggle');
+
+if (signUpButton && signInButton) { 
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+}
+
+if (mobileSignInToggle && mobileSignUpToggle) {
+    mobileSignUpToggle.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    mobileSignInToggle.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Create modal for success/error messages
+    const modal = document.createElement('div');
+    modal.id = 'successModal';
+    modal.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 10000;
+        display: none;
+        text-align: center;
+        max-width: 80%;
+    `;
+    document.body.appendChild(modal);
+
+    // Handle return request form (sign-up container)
+    const returnForm = document.querySelector('.sign-up-container form');
+    if (returnForm) {
+        returnForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const orderId = returnForm.querySelector('input[placeholder="Order Id"]').value;
+            const email = returnForm.querySelector('input[type="email"]').value;
+            const reason = returnForm.querySelector('#reason').value;
+            const returnMethod = returnForm.querySelector('#returnMethod').value;
+            
+            // Validate form
+            if (!orderId) {
+                showModal('Please enter your Order ID');
+                return;
+            }
+            
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showModal('Please enter a valid email address');
+                return;
+            }
+            
+            if (!reason) {
+                showModal('Please select a reason for return');
+                return;
+            }
+            
+            if (!returnMethod || returnMethod === 'Select Return Method') {
+                showModal('Please select a return method');
+                return;
+            }
+            
+            // If all validations pass
+            showModal('Return request submitted successfully! We will contact you shortly.');
+            
+            // Reset form
+            returnForm.reset();
+        });
+    }
+
+    // Handle contact form (sign-in container)
+    const contactForm = document.querySelector('.sign-in-container form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = contactForm.querySelector('input[placeholder="Name"]').value;
+            const email = contactForm.querySelector('input[type="email"]').value;
+            const message = contactForm.querySelector('textarea').value;
+            
+            // Validate form
+            if (!name) {
+                showModal('Please enter your name');
+                return;
+            }
+            
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showModal('Please enter a valid email address');
+                return;
+            }
+            
+            if (!message) {
+                showModal('Please enter your message');
+                return;
+            }
+            
+            // If all validations pass
+            showModal('Message sent successfully! We will get back to you soon.');
+            
+            // Reset form
+            contactForm.reset();
+        });
+    }
+
+    function showModal(message) {
+        modal.innerHTML = `
+            <p style="margin-bottom: 20px; font-size: 16px;">${message}</p>
+            <button onclick="closeModal()" style="
+                background: #1d3557;
+                color: white;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 20px;
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: bold;
+            ">OK</button>
+        `;
+        modal.style.display = 'block';
+        
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.id = 'modalOverlay';
+        overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9999;
+        `;
+        document.body.appendChild(overlay);
+    }
+
+    window.closeModal = function() {
+        document.getElementById('successModal').style.display = 'none';
+        const overlay = document.getElementById('modalOverlay');
+        if (overlay) overlay.remove();
+    };
+});
+
+function setInitialMobileState() {
+    if (window.innerWidth < 768) {
+        container.classList.remove("right-panel-active"); 
+    }
+}
+
+window.addEventListener('load', setInitialMobileState);
+window.addEventListener('resize', setInitialMobileState);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOCITY | Premium Sports Gear & Wellness</title>
+    <meta name="description" content="Discover premium sports gear and wellness products designed for athletes who demand the best performance.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+:root {
+    --primary: #e63946;
+    --primary-dark: #c1121f;
+    --secondary: #1d3557;
+    --secondary-light: #457b9d;
+    --light: #f8f9fa;
+    --light-alt: #f1faee;
+    --dark: #212529;
+    --dark-alt: #343a40;
+    --accent: #a8dadc;
+    --gray: #6c757d;
+    --light-gray: #e9ecef;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.4rem; }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(230, 57, 70, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.text-primary { color: var(--primary) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.bg-secondary { background-color: var(--secondary) !important; }
+.bg-light { background-color: var(--light) !important; }
+.bg-dark { background-color: var(--dark) !important; }
+
+.text-center { text-align: center; }
+
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.5s ease;
+}
+
+.page-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+header.scrolled {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--secondary);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+.logo span {
+  color: var(--primary);
+}
+
+.navbar-nav .nav-link {
+  color: var(--dark);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  margin: 0 6px;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 4px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary);
+}
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  bottom: 4px;
+  width: 70%;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.navbar-nav .nav-link.active {
+  color: var(--primary);
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px 0;
+  margin-top: 12px;
+}
+.dropdown-item {
+  padding: 10px 22px;
+  font-weight: 500;
+}
+.dropdown-item:hover {
+  background-color: var(--light-alt);
+  color: var(--primary);
+}
+
+/* === TOGGLER === */
+.navbar-toggler {
+  border: none;
+  font-size: 1.5rem;
+  color: var(--dark);
+  padding: 0.5rem;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-nav .fa-cart-shopping {
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+.section-title {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--secondary);
+  position: relative;
+  display: inline-block;
+  margin: 0 auto 1.5rem;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('pics/pic2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: 70px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.about {
+    background-color: var(--light-alt);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text {
+    padding-right: 20px;
+}
+
+.about-img {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials {
+    background-color: white;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.member-info {
+    padding: 20px;
+}
+
+.member-info h3 {
+    margin-bottom: 5px;
+}
+
+.member-info p {
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.newsletter {
+    background-color: var(--secondary);
+    color: white;
+    padding: 60px 0;
+}
+
+.newsletter h2 {
+    color: white;
+}
+
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 80px 0 30px;
+    position: relative;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.footer-logo span {
+    color: var(--primary);
+}
+
+.footer-about p {
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary);
+    transition: var(--transition);
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.copyright {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-menu-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.footer-menu-link:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 1199.98px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    section {
+        padding: 60px 0;
+    }
+    
+    .hero {
+        height: 50vh;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-text {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .about-img {
+        order: 1;
+    }
+    
+    .section-title {
+        padding-left: 0 !important;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    
+    footer .col-lg-4 {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    .hero {
+        height: 40vh;
+        margin-top: 60px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .team-member img {
+        height: 200px;
+    }
+    
+    .footer-logo {
+        font-size: 1.5rem;
+    }
+    
+    .footer-title {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .newsletter {
+        padding: 40px 0;
+    }
+    
+    .partner-logos {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .partner-logos a {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    section {
+        padding: 40px 0;
+    }
+    
+    .hero {
+        height: 35vh;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .member-info {
+        padding: 15px;
+    }
+    
+    .footer-bottom .col-md-6 {
+        text-align: center !important;
+        margin-bottom: 15px;
+    }
+    
+    .footer-menu {
+        justify-content: center;
+    }
+    
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Mobile menu adjustments */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: white;
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-nav .nav-item {
+        margin: 5px 0;
+    }
+    
+    .dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        margin: 10px 0;
+        box-shadow: none;
+        border-left: 3px solid var(--primary);
+    }
+    
+    .navbar-nav .nav-link::after {
+        display: none;
+    }
+}
+.btn-support {
+  background: var(--primary);
+  color: #fff !important;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s ease;
+}
+
+.btn-support:hover {
+  background: #e0484c;
+  transform: scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+    <div id="loader" class="page-loader">
+  <div class="text-center">
+    <div class="spinner-border text-danger" role="status" style="width: 3rem; height: 3rem;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+     <a href="home.html" class="navbar-brand logo">VELOC<span>ITY</span></a>
+    <p class="text-muted">Preparing your premium sports gear experience</p>
+  </div>
+</div>
+    
+<header id="header">
+<nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a href="index.html" class="navbar-brand logo">VELOC<span>ITY</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <div class="d-flex w-100 justify-content-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Products
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                                <li><a class="dropdown-item" href="nutrition.html">Supplements</a></li>
+                                <li><a class="dropdown-item" href="wearables.html">Wearables</a></li>
+                                <li><a class="dropdown-item" href="exercise.html">Train & Play</a></li>
+                                <li><a class="dropdown-item" href="flask.html">GYM Flask</a></li>
+                                <li><a class="dropdown-item" href="tech.html">GYM Tech</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kit.html">Kit Builder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="wellness.html">My Wellness</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faqs.html">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html"><i class="fa-solid fa-cart-shopping"></i> <span class="d-lg-none ms-2">Cart</span></a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                    <a class="btn btn-support" href="contact.html">
+                      Support
+                    </a>
+                  </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="hero about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>About Velocity</h1>
+                <p>Our mission is to empower athletes at every level</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2010 by Olympic athletes, Velocity has been at the forefront of sports innovation for over a decade. We combine cutting-edge technology with athlete insights to create gear that performs when it matters most.</p>
+                    <p>What began as a small startup focused on running shoes has grown into a comprehensive sports brand serving athletes across multiple disciplines. Our products are now used by professional teams and individual competitors worldwide.</p>
+                    <h3>Our Philosophy</h3>
+                    <p>We believe that great performance comes from the perfect combination of technology and human potential. Our gear is designed to enhance natural ability without compromising comfort or durability.</p>
+                </div>
+                <div class="about-img">
+                    <img src="pics/download.jpg" alt="Our Team" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Team</h2>
+                <p>The experts behind Velocity's innovation</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="pics/women1.jpeg" alt="Alexa Morgan" class="img-fluid">
+                    <div class="member-info">
+                        <h3>Alexa Morgan</h3>
+                        <p>Founder & CEO</p>
+                        <p>Former Olympic sprinter with a passion for sports technology</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="pics/men1.jpeg" alt="James Wilson" class="img-fluid">
+                    <div class="member-info">
+                        <h3>James Wilson</h3>
+                        <p>Head of Design</p>
+                        <p>15 years experience in athletic footwear design</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="pics/women2.jpeg" alt="Sarah Chen" class="img-fluid">
+                    <div class="member-info">
+                        <h3>Sarah Chen</h3>
+                        <p>Materials Engineer</p>
+                        <p>Specializes in high-performance fabrics</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="pics/men2.jpeg" alt="Michael Rodriguez" class="img-fluid">
+                    <div class="member-info">
+                        <h3>Michael Rodriguez</h3>
+                        <p>Product Testing</p>
+                        <p>Ensures all gear meets professional standards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partners</h2>
+                <p>Trusted by elite athletes and organizations</p>
+            </div>
+            <div class="partner-logos d-flex justify-content-center flex-wrap gap-4 my-4">
+                <a href="https://www.olympics.com/" target="_blank">
+                    <img src="https://via.placeholder.com/150x80?text=Olympics" alt="Olympics" class="img-fluid" style="filter: brightness(0) invert(1); height: 50px;">
+                </a>
+                <a href="https://www.ncaa.com/" target="_blank">
+                    <img src="https://via.placeholder.com/150x80?text=NCAA" alt="NCAA" class="img-fluid" style="filter: brightness(0) invert(1); height: 50px;">
+                </a>
+                <a href="https://www.worldathletics.org/competitions/world-athletics-label-road-races" target="_blank">
+                    <img src="https://via.placeholder.com/150x80?text=Marathon" alt="Marathon" class="img-fluid" style="filter: brightness(0) invert(1); height: 50px;">
+                </a>
+                <a href="https://www.teamusa.org/" target="_blank">
+                    <img src="https://via.placeholder.com/150x80?text=Team+USA" alt="Team USA" class="img-fluid" style="filter: brightness(0) invert(1); height: 50px;">
+                </a>
+            </div>
+        </div>
+    </section>
+
+     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <a href="index.html" class="footer-logo">VELOC<span>ITY</span></a>
+                    <p class="footer-about">Empowering athletes to reach their peak performance through innovative products and tracking tools. We believe everyone deserves access to premium sports gear.</p>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-5">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="products.html" class="footer-link">Products</a></li>
+                        <li><a href="kit.html" class="footer-link">Kit Builder</a></li>
+                        <li><a href="wellness.html" class="footer-link">My Wellness</a></li>
+                        <li><a href="contact.html" class="footer-link">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h5 class="footer-title">Products</h5>
+                    <ul class="list-unstyled">
+                    <li><a href="nutrition.html" class="text-white footer-link">Supplements</a></li>
+                    <li><a href="wearables.html" class="text-white footer-link">Wearables</a></li>
+                    <li><a href="exercise.html" class="text-white footer-link">Train & Play</a></li>
+                    <li><a href="flask.html" class="text-white footer-link">GYM Flask</a></li>
+                    <li><a href="tech.html" class="text-white footer-link">GYM Tech</a></li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h5>Connect With Us</h5>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" class="text-white me-2 social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com" class="text-white me-2 social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com" class="text-white me-2 social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" class="text-white me-2 social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p class="mt-3">Subscribe to our newsletter</p>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Your email">
+                    <button class="btn btn-danger footer-btn" type="button">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4 bg-light">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">&copy; 2023 VELOCITY. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="privacy.html" class="text-white me-3 footer-link">Privacy Policy</a>
+                <a href="terms.html" class="text-white footer-link">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+    <script>
+    window.addEventListener("load", function () {
+        setTimeout(function() {
+            const loader = document.getElementById("loader");
+            loader.classList.add("fade-out");
+            
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 500);
+        }, 2000); 
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentPage = window.location.pathname.split("/").pop();
+        const links = document.querySelectorAll(".navbar-nav .nav-link, .dropdown-menu .dropdown-item");
+
+        links.forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active");
+                const parentDropdown = link.closest(".dropdown");
+                if (parentDropdown) {
+                    parentDropdown.querySelector(".nav-link.dropdown-toggle").classList.add("active");
+                }
+            }
+        });
+
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    });
+    </script>
+</body>
+</html>
