@@ -513,7 +513,6 @@ footer {
     color: var(--primary);
 }
 
-/* Back to Top Button */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -559,6 +558,58 @@ footer {
 .btn-support:hover {
   background: #e0484c;
   transform: scale(1.05);
+}
+.footer-btn {
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  width: auto;
+  display: inline-block;
+}
+
+.footer-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .announcement-bar {
+    font-size: 14px;
+    padding: 8px 5px;
+  }
+
+  .footer-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .announcement-bar {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
+  .footer-btn {
+    width: auto;
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .announcement-bar {
+    font-size: 20px;
+    padding: 12px 15px;
+  }
+
+  .footer-btn {
+    font-size: 18px;
+    padding: 14px 24px;
+  }
 }
 </style>
 
